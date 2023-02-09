@@ -9,9 +9,10 @@ class generateToken():
         headers = {'Content-Type': 'application/json'}
         obj = {'APIPassword': passData["pass"]}
         jsonData = json.dumps(obj).encode('utf8')
-        url = f'/kabusapi/token'
-        response = requestApi().postRequest(jsonData, url, headers)
-        self.token = response.json()['Token']
+        url = f'token'
+        self.response = requestApi().postRequest(jsonData, url, headers)
 
     def __call__(self):
-        return self.token
+        if (self.response.status_code == 200):
+            return self.response.json()['Token']
+        return f'Error:{self.response.status_code}'

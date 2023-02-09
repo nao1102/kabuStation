@@ -1,9 +1,9 @@
 from requestApi.requestApi import requestApi
 
 
-class board():
-    def __init__(self, market, code, token):
-        urlSymbol = f'board/{code}@{market}'
+class marginpremium():
+    def __init__(self, code, token):
+        urlSymbol = f'margin/marginpremium/{code}'
         self.req = requestApi().getRequest(urlSymbol, {'X-API-KEY': token})
 
     def __call__(self, str):
