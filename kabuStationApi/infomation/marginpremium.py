@@ -1,4 +1,4 @@
-from requestApi.requestApi import requestApi
+from requestApi import requestApi
 
 
 class marginpremium():

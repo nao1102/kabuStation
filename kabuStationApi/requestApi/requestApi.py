@@ -1,10 +1,14 @@
 import requests
 from requests.auth import HTTPBasicAuth
 import json
-
+import configparser
 
 class requestApi():
     def __init__(self,):
+        inifile = configparser.SafeConfigParser()
+        inifile.read('../../settings.ini')
+        ipAddress=inifile.get('DEVELOP', 'ipaddress')
+        print(ipAddress)
         readPass = open('pass.json')
         passData = json.load(readPass)
         self.ipAddress = passData["ipaddress"]
