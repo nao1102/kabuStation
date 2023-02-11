@@ -1,7 +1,7 @@
 from requestApi.requestApi import requestApi
 
 
-class board():
+class symbol():
     def __init__(self, market, code, token):
         urlSymbol = f'symbol/{code}@{market}'
         self.req = requestApi().getRequest(urlSymbol, {'X-API-KEY': token})

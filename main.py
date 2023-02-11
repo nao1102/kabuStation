@@ -1,14 +1,17 @@
-from attestation.generateToken import generateToken
-from infomation.board import board
-from infomation.marginpremium import marginpremium
+import configparser
 
-token = generateToken()
-sonyBoard = board(1, 6758, token())
-margin = marginpremium(9433, token())
+def main():
+    token = generateToken()
+    sonyBoard = board(1, 6758, token())
+    margin = marginpremium(9433, token())
 
 
-print(token())
+    print(token())
 
-print(sonyBoard(""))
+    print(sonyBoard(""))
 
-print(margin(""))
+    print(margin(""))
+
+
+if __name__ == "__main__":
+    main()
