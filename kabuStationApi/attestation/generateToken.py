@@ -1,16 +1,19 @@
 import json
-from requestApi import requestApi
+from ..requestApi import requestApi
+import configparser
 
 
 class generateToken():
     def __init__(self):
-        readPass = open('pass.json')
-        passData = json.load(readPass)
+        inifile = configparser.SafeConfigParser()
+        inifile.read('settings.ini')
+        passWord = inifile.get('DEFAULT', "pass")
         headers = {'Content-Type': 'application/json'}
-        obj = {'APIPassword': passData["pass"]}
+        obj = {'APIPassword': passWord}
         jsonData = json.dumps(obj).encode('utf8')
         url = f'token'
-        self.response = requestApi().postRequest(jsonData, url, headers)
+        requestApiItem = requestApi()
+        self.response = requestApiItem.postRequest(jsonData, url, headers)
 
     def __call__(self):
         if (self.response.status_code == 200):

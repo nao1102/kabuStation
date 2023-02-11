@@ -1,1 +1,1 @@
-from generateToken import generateToken
+from .generateToken import generateToken

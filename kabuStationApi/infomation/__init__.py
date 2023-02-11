@@ -1,3 +1,3 @@
-from board import board
-from marginpremium import marginpremium
-from kabuSymbol import kabuSymbol
+from .board import board
+from .kabuSymbol import kabuSymbol
+from .marginpremium import marginpremium
